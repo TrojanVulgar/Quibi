@@ -1,0 +1,43 @@
+<resources>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="TubiExoPlayerView">
+        <attr name="use_artwork" format="boolean" />
+        <attr name="default_artwork" format="reference" />
+        <attr name="use_controller" format="boolean" />
+        <attr name="surface_type" />
+        <attr name="show_timeout" />
+        <attr name="rewind_increment" />
+        <attr name="fastforward_increment" />
+        <attr name="resize_mode" />
+        <attr name="player_layout_id" />
+        <attr name="controller_layout_id" />
+
+
+    </declare-styleable>
+
+    <declare-styleable name="TubiPlayerControlViewOld">
+        <attr name="show_timeout_ms" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="TubiPlayerControlView">
+        <attr name="tubi_hide_timeout_ms" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="SubstitleImageButton">
+        <attr name="state_checked" format="reference" />
+        <attr name="state_not_checked" format="reference" />
+    </declare-styleable>
+
+
+
+
+</resources>

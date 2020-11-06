@@ -1,0 +1,8 @@
+include ':app'
+
+gradle.ext.exoplayerRoot = '/'
+gradle.ext.exoplayerModulePrefix = 'extensions-'
+
+
+
+apply from: 'core_settings.gradle'

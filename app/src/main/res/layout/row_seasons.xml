@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<com.balysv.materialripple.MaterialRippleLayout
+    android:id="@+id/epLayout"
+    style="@style/RippleStyleBlack"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:minHeight="?attr/actionBarSize"
+        android:orientation="horizontal"
+        android:focusable="true">
+
+
+        <FrameLayout
+            android:layout_width="123dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="@dimen/spacing_middle"
+            android:layout_marginEnd="@dimen/padding_10"
+            >
+
+
+
+
+            <ImageView
+                android:id="@+id/epcover"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                tools:ignore="ContentDescription" />
+
+
+
+
+            <ProgressBar
+                android:id="@+id/resume_progress_bar"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:indeterminate="false"
+                android:progressDrawable="@drawable/content_detail_progress" />
+
+
+        </FrameLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/spacing_middle">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="3dp">
+
+                    <TextView
+                        android:id="@+id/epnumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_middle"
+                        android:text="@string/ep_n"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/grey_11"
+                        android:textSize="14sp" />
+
+
+                    <TextView
+                        android:id="@+id/eptitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/spacing_middle"
+                        android:textStyle="bold"
+                        android:text="@string/title"
+                        android:maxLength="30"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/grey_11"
+                        android:textSize="14sp" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="end"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="3dp">
+
+
+                <ImageView
+                    android:id="@+id/downloadEpisode"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:scaleType="fitXY"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/ic_download"
+                    android:backgroundTint="@color/golden_gate"
+                    tools:ignore="ContentDescription" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/epoverview"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/spacing_middle"
+                android:maxLines="4"
+                android:text="@string/movie_overview_text"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</com.balysv.materialripple.MaterialRippleLayout>
+
+
+</layout>

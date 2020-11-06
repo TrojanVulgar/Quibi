@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+
+    <item
+        android:id="@+id/myListFragment"
+        android:icon="@drawable/ic_favorite"
+        android:iconTint="@color/grey_11"
+        android:title="@string/settings"
+        app:itemTextColor="@color/main_color"
+        app:showAsAction="ifRoom|collapseActionView"
+        tools:targetApi="o" />
+
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"
+        app:itemTextColor="@color/main_color"
+        app:showAsAction="always|collapseActionView" />
+
+</menu>

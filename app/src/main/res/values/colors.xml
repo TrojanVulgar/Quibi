@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="bottomnavigationbgcolor">#121212</color>
+    <color name="white">#FFFFFF</color>
+    <color name="fragment_content_detail_stroke">#1a000000</color>
+    <color name="grey_11">#e6e6e6</color>
+    <color name="grey_60">#666666</color>
+    <color name="transparent">#00000000</color>
+    <color name="fragment_content_detail_overlay_end">#1a1a1a</color>
+    <color name="fragment_content_detail_overlay_center">#6626262d</color>
+    <color name="fragment_content_detail_overlay_start">#0026262d</color>
+    <color name="fragment_featured_end">#1a1a1a</color>
+    <color name="fragment_featured_overlay_center">#6626262d</color>
+    <color name="fragment_featured_overlay_start">#0026262d</color>
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="orange">#ff501a</color>
+    <color name="app_background">#232325</color>
+    <color name="greyhome">#26272c</color>
+    <color name="search_background_input">#333333</color>
+    <color name="main_color">#00b4ca</color>
+    <color name="grey_3">#f7f7f7</color>
+    <color name="blue_grey_600">#546E7A</color>
+    <color name="grey_20">#cccccc</color>
+    <color name="grey_40">#999999</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_1000">#1a1a1a</color>
+    <color name="grey_1100">#070707</color>
+    <color name="golden_gate">#00b4ca</color>
+    <color name="tv_steel_grey">#26262d</color>
+    <color name="red_A700">#D50000</color>
+    <color name="player_controls_overlay">#b226262d</color>
+    <color name="tv_auto_play_overlay_center">#99191919</color>
+    <color name="tv_auto_play_overlay_end">#cc191919</color>
+    <color name="tv_auto_play_overlay_start">#4c191919</color>
+    <color name="player_controls_progress_background">#33ffffff</color>
+    <color name="player_controls_secondary_progress_background">#4cffffff</color>
+    <color name="tv_player_white">#ffffffff</color>
+    <color name="overlay_dark_50">#80000000</color>
+    <color name="gray">#333333</color>
+    <color name="light_green_400">#9CCC65</color>
+    <color name="light_green_600">#7CB342</color>
+    <color name="light_green_500">#8BC34A</color>
+</resources>

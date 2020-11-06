@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <import type="com.google.android.exoplayer2.ExoPlayer" />
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="controller"
+            type="com.easyplex.ui.player.bindings.PlayerController" />
+    </data>
+
+
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:id="@+id/coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <com.easyplex.ui.player.views.TubiExoPlayerView
+        android:id="@+id/tubitv_player"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:id="@+id/main_nav_host_fragment"
+        />
+
+    <com.google.android.exoplayer2.ui.TrackSelectionView
+        android:id="@+id/exo_track_selection_init_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical" />
+
+    <FrameLayout
+        android:id="@+id/view_media_is_premuim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:background="@android:color/transparent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:background="@color/grey_1100"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/image" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/fragment_shadows"
+            android:contentDescription="@string/image"
+            android:scaleType="centerCrop" />
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/spacing_mlarge"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessLeaf">
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_large"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/sorry"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/grey_11"
+                android:textSize="20sp"
+                app:fontFamily="sans-serif-black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/this_content_if_only_for_vip"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/grey_11"
+                android:textSize="20sp"
+                app:fontFamily="sans-serif-black" />
+
+
+            <Button
+                android:id="@+id/back_is_premuim"
+                android:layout_width="400dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="-4dp"
+                android:layout_marginTop="@dimen/pixel_20dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@drawable/btn_gradient"
+                android:text="@string/back"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/close_premuim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_close"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="15dp"
+            android:tint="@color/grey_40"
+            android:contentDescription="@string/image" />
+
+
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/view_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:background="@android:color/transparent">
+
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="match_parent"
+            android:background="@color/grey_1100"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/image" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/fragment_shadows"
+            android:contentDescription="@string/image"
+            android:scaleType="centerCrop" />
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/spacing_mlarge"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="UselessLeaf">
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_large"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/movietitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="This product cannot be activated because the product key is not valid.
+"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/grey_11"
+                android:textSize="@dimen/pixel_20dp"
+                app:fontFamily="sans-serif-black" />
+
+
+            <Button
+                android:id="@+id/restartApp"
+                android:layout_width="400dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="-4dp"
+                android:layout_marginTop="@dimen/pixel_20dp"
+                android:layout_marginEnd="-4dp"
+                android:background="@drawable/btn_gradient"
+                android:text="Restart"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+
+        <ImageView
+            android:id="@+id/close_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_close"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="15dp"
+            android:tint="@color/grey_40"
+            android:contentDescription="@string/image" />
+
+
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/frame_substitles"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:alpha="0.95"
+        android:background="@color/grey_1000"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+
+        <ImageView
+            android:id="@+id/close_substitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_close"
+            android:layout_gravity="start"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="15dp"
+            android:tint="@color/grey_40"
+            android:contentDescription="@string/image" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/substitles"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/grey_11"
+                android:textSize="24sp"
+                app:fontFamily="sans-serif-black" />
+
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/substitle_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey_1000"
+                android:clipToPadding="false"
+                android:alpha="0.95"
+                android:scrollbars="none"
+                android:scrollingCache="true">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_substitles"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="vertical"
+                            android:scrollingCache="true" />
+
+
+                    </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+
+
+
+
+    <FrameLayout
+        android:id="@+id/frame_qualities"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:alpha="0.95"
+        android:background="@color/grey_1000"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+
+            <ImageView
+                android:id="@+id/close_qualities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_close"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
+                android:tint="@color/grey_40"
+                android:contentDescription="@string/image" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/qualities"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/grey_11"
+                android:textSize="24sp" />
+
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/qualities_scroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/grey_1000"
+                android:clipToPadding="false"
+                android:alpha="0.95"
+                android:scrollbars="none"
+                android:scrollingCache="true">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_qualites"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"
+                        android:scrollingCache="true" />
+
+
+                </LinearLayout>
+
+
+            </androidx.core.widget.NestedScrollView>
+
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout_movies_list"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+
+
+
+        <RelativeLayout
+            android:gravity="center"
+            android:elevation="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/pixel_20dp"
+            android:layout_gravity="start"
+            android:background="@color/transparent"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:id="@+id/close_movies_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_close"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
+                android:tint="@color/grey_40"
+                android:contentDescription="@string/image" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/movie_list_btn"
+            android:gravity="center"
+            android:elevation="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/pixel_20dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_episodes"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+
+
+            <com.easyplex.ui.player.views.SeasonsImageButton
+                android:tint="@color/white"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_tune"
+                android:backgroundTint="@color/grey_11"
+                android:layout_marginTop="5dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/image" />
+
+            <TextView
+                android:id="@+id/view_text_movie_list_genre_name"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="35dp"
+                android:text="@string/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+
+        </RelativeLayout>
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.95"
+            android:background="@color/grey_1000"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:scrollingCache="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/movies_list_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTintMode="src_over"
+                    android:dropDownWidth="wrap_content"
+                    android:dropDownSelector="#333333"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:popupBackground="#333333"
+                    android:spinnerMode="dialog"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:fontFamily="sans-serif-black"
+                    app:smsp_arrowColor="@color/transparent"
+                    app:smsp_itemColor="@color/white"
+                    app:smsp_itemListColor="@color/grey_40"
+                    app:smsp_itemListHintBackgroundColor="@color/greyhome"
+                    app:smsp_itemSize="@dimen/pixel_16dp"
+                    app:smsp_selectedItemListColor="@color/white"
+                    app:smsp_underlineColor="@color/transparent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_featured"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false" />
+
+
+
+                <LinearLayout
+                    android:id="@+id/noResults"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:id="@+id/view_text_genre_name_selected"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/genres_list_is_empty"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/grey_11"
+                        android:textSize="20sp"
+                        app:fontFamily="sans-serif-black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_try_another_genre"
+                        android:textColor="@color/grey_40"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout_seasons"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/filter_btn"
+        android:gravity="center"
+        android:elevation="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/pixel_20dp"
+        android:layout_gravity="end"
+        android:background="@drawable/bg_episodes"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp">
+
+
+        <com.easyplex.ui.player.views.SeasonsImageButton
+            android:tint="@color/white"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_tune"
+            android:backgroundTint="@color/grey_11"
+            android:layout_marginTop="5dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="@string/image" />
+
+        <TextView
+            android:id="@+id/current_selected_seasons"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginStart="35dp"
+            android:text="@string/seasons"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp" />
+
+
+    </RelativeLayout>
+
+
+
+        <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_1000"
+        android:clipToPadding="false"
+        android:alpha="0.95"
+        android:scrollbars="none"
+        android:scrollingCache="true">
+
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+
+                <ImageView
+                android:id="@+id/close_episode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_close"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
+                android:tint="@color/grey_40"
+                android:contentDescription="@string/image" />
+
+
+                <TextView
+                    android:id="@+id/view_serie_controller_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="22dp"
+                    android:gravity="center_horizontal"
+                    android:text="@{controller.videoName}"
+                    android:layout_marginEnd="20dp"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textColor="@color/grey_11"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:fontFamily="sans-serif-black"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="TITLE" />
+
+            </LinearLayout>
+
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                android:id="@+id/planets_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTintMode="src_over"
+                android:dropDownWidth="wrap_content"
+                android:dropDownSelector="#333333"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:popupBackground="#333333"
+                android:spinnerMode="dialog"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:fontFamily="sans-serif-black"
+                app:smsp_arrowColor="@color/transparent"
+                app:smsp_itemColor="@color/white"
+                app:smsp_itemListColor="@color/grey_40"
+                app:smsp_itemListHintBackgroundColor="@color/greyhome"
+                app:smsp_itemSize="@dimen/pixel_16dp"
+                app:smsp_selectedItemListColor="@color/white"
+                app:smsp_underlineColor="@color/transparent" />
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_episodes"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical"
+                    android:scrollingCache="true" />
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout_streaming"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:gravity="center"
+            android:elevation="1dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/pixel_20dp"
+            android:layout_gravity="start"
+            android:background="@color/transparent"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+            <ImageView
+                android:id="@+id/closeStreaming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_close"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="15dp"
+                android:tint="@color/grey_40"
+                android:contentDescription="@string/image" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/genreStreamRelative"
+            android:gravity="center"
+            android:elevation="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/pixel_20dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_episodes"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+
+
+            <com.easyplex.ui.player.views.SeasonsImageButton
+                android:tint="@color/white"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_tune"
+                android:backgroundTint="@color/grey_11"
+                android:layout_marginTop="5dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/image" />
+
+            <TextView
+                android:id="@+id/currentStreamingGenre"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="35dp"
+                android:text="@string/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+
+        </RelativeLayout>
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.95"
+            android:background="@color/grey_1000"
+            android:clipToPadding="false"
+            android:scrollbars="none"
+            android:scrollingCache="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/spinnerMediaStreaming"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTintMode="src_over"
+                    android:dropDownWidth="wrap_content"
+                    android:dropDownSelector="#333333"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:popupBackground="#333333"
+                    android:spinnerMode="dialog"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:fontFamily="sans-serif-black"
+                    app:smsp_arrowColor="@color/transparent"
+                    app:smsp_itemColor="@color/white"
+                    app:smsp_itemListColor="@color/grey_40"
+                    app:smsp_itemListHintBackgroundColor="@color/greyhome"
+                    app:smsp_itemSize="@dimen/pixel_16dp"
+                    app:smsp_selectedItemListColor="@color/white"
+                    app:smsp_underlineColor="@color/transparent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewStreaming"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false" />
+
+
+
+                <LinearLayout
+                    android:id="@+id/noResultsStream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:id="@+id/viewTextGenreNameSelectedStream"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/genres_list_is_empty"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="@color/grey_11"
+                        android:textSize="20sp"
+                        app:fontFamily="sans-serif-black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/please_try_another_genre"
+                        android:textColor="@color/grey_40"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/framlayout_media_ended"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/tubi_tv_controller_guideline_bottom"
+        app:layout_constraintTop_toTopOf="@+id/tubi_tv_controller_guideline_top">
+
+        <RelativeLayout
+            android:id="@+id/filter_btn_ended"
+            android:gravity="center"
+            android:elevation="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="visible"
+            android:layout_marginTop="@dimen/pixel_20dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_episodes"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+
+
+            <com.easyplex.ui.player.views.SeasonsImageButton
+                android:tint="@color/white"
+                android:padding="5dp"
+                app:srcCompat="@drawable/ic_tune"
+                android:backgroundTint="@color/grey_11"
+                android:layout_marginTop="5dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/image" />
+
+            <TextView
+                android:id="@+id/selected_season_ended"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginStart="35dp"
+                android:text="@string/seasons"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+
+
+        </RelativeLayout>
+
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey_1000"
+            android:clipToPadding="false"
+            android:alpha="0.95"
+            android:scrollbars="none"
+            android:scrollingCache="true">
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <ImageView
+
+                    android:id="@+id/close_media_ended"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_close"
+                    android:layout_gravity="start"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:tint="@color/grey_40"
+                    android:contentDescription="@string/image" />
+
+
+                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                    android:id="@+id/spinner_media_ended"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTintMode="src_over"
+                    android:dropDownWidth="wrap_content"
+                    android:dropDownSelector="#333333"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:popupBackground="#333333"
+                    android:spinnerMode="dialog"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:fontFamily="sans-serif-black"
+                    app:smsp_arrowColor="@color/transparent"
+                    app:smsp_itemColor="@color/white"
+                    app:smsp_itemListColor="@color/grey_40"
+                    app:smsp_itemListHintBackgroundColor="@color/greyhome"
+                    app:smsp_itemSize="@dimen/pixel_16dp"
+                    app:smsp_selectedItemListColor="@color/white"
+                    app:smsp_underlineColor="@color/transparent" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_episodes_ended"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="vertical"
+                        android:scrollingCache="true" />
+
+
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <FrameLayout
+            android:id="@+id/nextPlayLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="bottom"
+            android:minHeight="?attr/actionBarSize"
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/pixel_15dp"
+            android:paddingEnd="@dimen/pixel_15dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="3dp"
+                tools:ignore="TooManyViews,UselessParent">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="3dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:layout_marginBottom="2dp"
+                        android:orientation="horizontal"
+                        >
+
+
+                        <TextView
+                            android:id="@+id/text_view_video_time_remaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="@dimen/spacing_middle"
+                            android:text="@{controller.timeRemaining}"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textColor="@color/grey_11"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            tools:text="Up Next in : 15 sec" />
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:id="@+id/image_view_movie_next"
+                        android:layout_width="120dp"
+                        android:layout_height="63dp"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="5dp"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="@string/image" />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="9dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/text_view_video_next_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            tools:text="The BlackList" />
+
+                        <TextView
+                            android:id="@+id/text_view_video_release"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            tools:text=" - 2017" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="horizontal"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <TextView
+                            android:id="@+id/text_view_video_next_release_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/main_color"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:paddingStart="7dp"
+                            android:paddingEnd="7dp"
+                            android:textStyle="bold"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                            android:textColor="@color/grey_11"
+                            android:textSize="7sp"
+                            app:fontFamily="sans-serif-black"
+                            tools:text="@string/genre" />
+
+
+                        <ImageView
+                            android:id="@+id/view_media_substitle_support"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginStart="5dp"
+                            android:contentDescription="@string/image"
+                            android:src="@drawable/ic_cc"
+                            />
+
+
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="horizontal">
+
+
+                        <RatingBar
+                            android:id="@+id/rating_bar"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:numStars="5"
+                            android:rating="4.0"
+                            android:stepSize="0.1"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <WebView
+        android:id="@+id/vpaid_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <WebView
+        android:id="@+id/webview_player"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/cuepoint_indictor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@android:color/holo_purple" />
+
+
+
+    <FrameLayout
+        android:id="@+id/frame_layout_ads_remaining"
+        android:layout_width="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:visibility="gone"
+        android:layout_height="wrap_content">
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:background="@color/overlay_dark_50"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+
+        <TextView
+            android:id="@+id/view_skip_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@{controller.adsRemainInString}"
+            android:textSize="12sp"
+            android:padding="10dp"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@android:color/white"
+            tools:text="You Can Skip in 8s"
+            />
+
+    </LinearLayout>
+
+
+
+</FrameLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/tubi_tv_controller_guideline_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/pixel_20dp" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/tubi_tv_controller_guideline_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/pixel_20dp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/tubi_tv_controller_guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="@dimen/pixel_20dp" />
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/tubi_tv_controller_guideline_seek_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="84dp" />
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/tubi_tv_controller_guideline_seek_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="84dp" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+</layout>
+

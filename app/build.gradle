@@ -1,0 +1,302 @@
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+
+
+
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion "30.0.2"
+
+
+    externalNativeBuild {
+        // Encapsulates your CMake build configurations.
+        // For ndk-build, instead use the ndkBuild block.
+        cmake {
+            // Specifies a path to your CMake build script that's
+            // relative to the build.gradle file.
+            path "CMakeLists.txt"
+        }
+    }
+
+
+    lintOptions {
+        abortOnError false   
+        checkAllWarnings false
+        checkReleaseBuilds false
+        ignoreWarnings true
+        quiet true
+        tasks.lint.enabled = false
+    }
+
+    defaultConfig {
+        applicationId "com.easyplex1"
+        minSdkVersion 23
+        targetSdkVersion versions.targetSdk
+        versionCode 3
+        versionName "1.2"
+        multiDexEnabled true
+
+
+    }
+
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    buildTypes {
+
+        release {
+
+            // Enables code shrinking, obfuscation, and optimization for only
+            // your project's release build type.
+            minifyEnabled true
+
+            // Enables resource shrinking, which is performed by the
+            // Android Gradle plugin.
+            shrinkResources true
+            debuggable true
+
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+
+            buildConfigField "String", "APP_CONFIG", "\"${versions2.api}\""
+            buildConfigField "String", "APP_STARUP", "\"${versions2.api2}\""
+
+
+        }
+
+        debug {
+
+
+            buildConfigField "String", "APP_CONFIG", "\"${versions2.api}\""
+            buildConfigField "String", "APP_STARUP", "\"${versions2.api2}\""
+        }
+    }
+
+    buildFeatures{
+        dataBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    implementation project(path: modulePrefix + 'extension-av1')
+    implementation project(path: modulePrefix + 'extension-ffmpeg')
+    implementation project(path: modulePrefix + 'extension-opus')
+    implementation project(path: modulePrefix + 'extension-vp9')
+    implementation project(path: modulePrefix + 'extension-rtmp')
+
+
+    //Navigation component
+    implementation "androidx.navigation:navigation-fragment:${versions.fragment}"
+    implementation "androidx.navigation:navigation-ui:${versions.fragment}"
+
+    // Android Support
+    implementation "androidx.core:core:${versions.core}"
+    implementation 'androidx.appcompat:appcompat:1.3.0-alpha02'
+    implementation "com.android.support:support-core-utils:28.0.0"
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.pchmn:MaterialChipsInput:1.0.8'
+    implementation 'com.balysv:material-ripple:1.0.2'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation(name: 'vaud-text-view-0.0.2', ext: 'aar')
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.annotation:annotation:1.1.0'
+    implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
+    implementation 'androidx.legacy:legacy-support-core-utils:1.0.0'
+    implementation 'me.relex:circleindicator:2.1.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation "com.google.android.material:material:1.3.0-alpha03"
+    implementation "androidx.annotation:annotation:1.1.0"
+    // To use the Java-compatible @Experimental API annotation
+    implementation "androidx.annotation:annotation-experimental:1.0.0"
+
+
+    // Configure the native build only if ffmpeg is present to avoid gradle sync
+        // failures if ffmpeg hasn't been built according to the README instructions.
+    if (project.file('libs/ffmpeg/src/main/jni/ffmpeg').exists()) {
+        android.externalNativeBuild.cmake.path = 'libs/ffmpeg/src/main/jni/CMakeLists.txt'
+        android.externalNativeBuild.cmake.version = '3.7.1+'
+    }
+
+
+    // Lifecycles, LiveData, and ViewModel.
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // Java8 support for Lifecycles
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+
+    // ReactiveStreams support for LiveData
+    implementation 'androidx.lifecycle:lifecycle-reactivestreams:2.2.0'
+
+    // Room
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
+
+    // Room RxJava Support for Room
+    implementation 'androidx.room:room-rxjava2:2.2.5'
+    implementation "com.github.akarnokd:rxjava3-bridge:3.0.0"
+
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+    implementation "com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0-RC8"
+    implementation "com.squareup.retrofit2:converter-moshi:2.4.0"
+
+    // OkHTTP
+    implementation "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    implementation "com.google.code.gson:gson:${versions.gson}"
+
+
+
+    // MultiDex Support
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+    // Dagger Core
+    implementation "com.google.dagger:dagger:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${versions.dagger}"
+
+
+    // Dagger Android
+    implementation "com.google.dagger:dagger-android:${versions.dagger}"
+    implementation "com.google.dagger:dagger-android-support:${versions.dagger}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${versions.dagger}"
+
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:${versions.glide}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${versions.glide}"
+    implementation "com.github.bumptech.glide:okhttp3-integration:${versions.glide}"
+    implementation "com.github.bumptech.glide:recyclerview-integration:${versions.glide}"
+
+
+    // Reactive Programming
+    implementation "io.reactivex.rxjava3:rxandroid:${versions.rxandroid}"
+    implementation "io.reactivex.rxjava3:rxjava:${versions.rxjava}"
+
+    // View Injection
+    implementation "com.jakewharton:butterknife:${versions.butterknife}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+
+    // Youtube
+    implementation files('libs/YouTubeAndroidPlayerApi.jar')
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+
+    // Logging
+    implementation "com.jakewharton.timber:timber:${versions.timber}"
+
+    // Youtube Extractor
+    implementation "com.github.HaarigerHarald:android-youtubeExtractor:${versions.youtube}"
+
+    // Fontawsome Icons
+    implementation 'info.androidhive:fontawesome:0.0.5'
+    implementation 'com.github.gmazzo:fontawesome:0.4'
+
+    // Tubi Loading Progressbar
+    implementation 'com.tubitv.ui:tubi-loading-view:0.0.4@aar'
+
+    // ExoPlayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.11.7'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:4.7.2'
+    implementation 'com.google.android.exoplayer:extension-okhttp:2.11.4'
+    implementation 'androidx.mediarouter:mediarouter:1.1.0'
+    implementation 'com.google.android.gms:play-services-cast-framework:19.0.0'
+
+
+
+
+
+    // The library adds the IMA ExoPlayer integration for ads.
+    implementation 'com.google.android.exoplayer:extension-ima:2.11.7'
+
+
+    // Admob.
+    implementation 'com.google.android.gms:play-services-ads:19.4.0'
+
+
+    // Animatoo (Transition Between Activities)
+    implementation 'com.github.mohammadatif:Animatoo:master'
+
+
+    // Paypal SDK
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.16.0'
+
+
+    // Spinner
+    implementation 'com.github.chivorns:smartmaterialspinner:1.1.6'
+
+    // Awesome Validation
+    implementation 'com.basgeekball:awesome-validation:4.2'
+
+    // CircularImage
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
+
+
+    // Firebase Cloud Messaging
+    implementation "com.google.firebase:firebase-messaging:${versions.firebase}"
+    implementation "com.google.firebase:firebase-core:17.5.1"
+
+
+
+    // Facebook stetho
+    implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+
+    // Facebook Audience
+    implementation 'com.facebook.android:audience-network-sdk:6.1.0'
+
+
+    implementation 'at.favre.lib:bcrypt:0.9.0'
+
+
+    // StartApp
+    implementation 'com.startapp:inapp-sdk:4.6.2'
+    implementation 'com.stripe:stripe-android:16.0.1'
+    implementation 'com.github.javiersantos:AppUpdater:2.7'
+    implementation 'com.mindorks.android:prdownloader:0.6.0'
+    implementation 'com.google.firebase:firebase-firestore:21.7.1'
+    implementation 'com.download.library:Downloader:4.1.4'
+    implementation 'com.appodeal.ads:sdk:2.7.3.+'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'info.guardianproject.netcipher:netcipher:2.1.0'
+    implementation 'info.guardianproject.netcipher:netcipher-okhttp3:2.0.0-alpha1'
+    implementation group: 'net.lingala.zip4j', name: 'zip4j', version: '2.5.1'
+    implementation 'androidx.palette:palette:1.0.0'
+    implementation 'org.greenrobot:eventbus:3.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+
+
+
+}
+repositories {
+    mavenCentral()
+}
